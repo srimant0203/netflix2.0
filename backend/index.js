@@ -27,10 +27,10 @@ app.use(cors(corsOptions));
 // api
 app.use("/api/v1/user", userRoute);
 
-app.use(express.static(path.join(__dirname, "/netflix/dist")));
+app.use(express.static(path.join(__dirname, "/netflix/build")));
 
 app.get("*", (req, res) => {
-	res.sendFile(path.resolve(__dirname, "netflix", "dist", "index.html"));
+	res.sendFile(path.resolve(__dirname, "netflix", "build", "index.html"));
 });
 
 app.listen(process.env.PORT,() => {
