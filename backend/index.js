@@ -5,12 +5,15 @@ import databaseConnection from "./utils/database.js";
 import cookieParser from "cookie-parser";
 import userRoute from "./routes/userRoute.js";
 import cors from "cors";
+import job from "./cron/cron.js";
 
 databaseConnection();
 
 dotenv.config({
     path:".env"
 })
+
+job.start();
 const app = express();
 const __dirname = path.resolve();
 
